@@ -35,12 +35,22 @@ export default ({ config }) => ({
     },
     package: 'com.salihhugurr.Lemon',
   },
+  ios: {
+    bundleIdentifier: "com.salihhugurr.Lemon"
+  },
   plugins: [
     'expo-router',
     [
       '@rnmapbox/maps',
       {
-        RNMapboxMapsDownloadToken: process.env.RNMAPBOX_MAPS_DOWNLOAD_TOKEN,
+        RNMapboxMapsDownloadToken: process.env.EXPO_PUBLIC_RNMAPBOX_MAPS_DOWNLOAD_TOKEN,
+        RNMapboxMapsVersion: "11.0.0"
+      },
+    ],
+    [
+      'expo-location',
+      {
+        locationWhenInUsePermission: "Show current location on map.",
       },
     ],
   ],
